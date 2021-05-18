@@ -29,11 +29,7 @@ while (1 == 1):
 
                 elif (admin.state == 'size_pizza'):
                     #Хочет пиццу.
-                    if (message.text.lower() == config.size_pizza[0]):
-                        order.size = message.text.lower()
-                        admin.trigger('pay')#Переход на следующий этап
-                        client.send_message(message.from_user.id, config.pay)
-                    elif (message.text.lower() == config.size_pizza[1]):
+                    if (message.text.lower() == config.size_pizza[0] or message.text.lower() == config.size_pizza[1]):
                         order.size = message.text.lower()
                         admin.trigger('pay')#Переход на следующий этап
                         client.send_message(message.from_user.id, config.pay)
@@ -42,13 +38,9 @@ while (1 == 1):
 
                 elif (admin.state == 'pay'):
                     #Оплата.
-                    if (message.text.lower() == config.cash[0]):
+                    if (message.text.lower() == config.cash[0] or message.text.lower() == config.cash[1]):
                         order.pay = message.text.lower()
                         admin.trigger('order') #Переход на следующий этап
-                        client.send_message(message.from_user.id, order.check())
-                    elif (message.text.lower() == config.cash[1]):
-                        order.pay = message.text.lower()
-                        admin.trigger('order')#Переход на следующий этап
                         client.send_message(message.from_user.id, order.check())
                     else:
                         client.send_message(message.from_user.id, config.mistake)
