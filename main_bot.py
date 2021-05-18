@@ -53,7 +53,7 @@ while (1 == 1):
                         admin.trigger('sleep')#Переход на следующий этап
                         client.send_message(config.ID_ADMIN, order.pull_admin()) #Отправить заказ, пора готовить пиццу
                     elif (message.text.lower() == "нет"):
-                        client.send_message(message.from_user.id, "Можете сбросить заказ, если поменять заказ")
+                        client.send_message(message.from_user.id, "Можете сбросить заказ, если хотите поменять заказ")
                     else:
                         client.send_message(message.from_user.id, config.mistake)
 
